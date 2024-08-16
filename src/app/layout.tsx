@@ -6,6 +6,8 @@ import Sidebar from "@/components/Sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "600"] });
+import { Toaster } from "@/components/ui/toaster"
+import ThemeProvider from "@/components/theamProvider/TheamProvider"
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
@@ -21,17 +23,25 @@ export default function RootLayout({
     <html lang="en">
 
       <body className={poppins.className}>
-        <Navbar />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
 
-        <div className="flex  ">
-          <div className="hidden md:block h-[100vh] w-[300px]">
-            <Sidebar />
-          </div>
-          <div className="p-5 w-full  md:max-w-[1140px]">
-            {children}
+          <div className="flex  ">
+            <div className="hidden md:block h-[100vh] w-[300px]">
+              <Sidebar />
+            </div>
+            <div className="p-5 w-full  md:max-w-[1140px]">
+              {children}
 
+            </div>
           </div>
-        </div>
+          <Toaster />
+        </ThemeProvider>
 
       </body>
     </html>
