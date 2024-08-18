@@ -9,6 +9,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import TheamTag from '../components/TheamTag'
+import Link from 'next/link'
 
 
 
@@ -17,7 +18,7 @@ const Navbar = () => {
         <div className='flex items-center justify-between px-4 py-2 bg-slate-700 text-white'>
             <h2>Logo</h2>
             <div className='cursor-pointer flex items-center gap-4'>
-                <div className='rounded-full flex items-center gap-5'>
+                <div className='rounded-full flex items-center gap-5 text-slate-500'>
 
                     <TheamTag />
 
@@ -32,7 +33,9 @@ const Navbar = () => {
                             <DropdownMenuLabel>My Account</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>logout</DropdownMenuItem>
+                            <DropdownMenuItem >
+                                <Link href={"/auth"}>logout</Link>
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
